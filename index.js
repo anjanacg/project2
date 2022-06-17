@@ -48,6 +48,7 @@ app.get("/",(req,res)=>{
 });
 
 app.post("/", async (req, res) => {
+    
     const product_name = req.body.product_name;
     const product_price = req.body.product_price;
     const product_quantity = req.body.product_quantity;
