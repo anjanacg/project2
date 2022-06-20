@@ -40,7 +40,7 @@ const sequelize = new Sequelize("anjuDB", "anjana", "Anjana@123", {
   .catch((err) => console.log(err, "this has a error"));
 
 
-
+  
 app.get("/",(req,res)=>{
     res.send("it is working fine");
 
@@ -61,12 +61,13 @@ app.post("/", async (req, res) => {
       product_quality,
     });
     await saveProduct1.save();
-    res.send("data posted ");
+    res.send("data posted Successfully");
   });
 
 app.get('/',async(req,res)=>{
     const alldata=await product_De.findAll();
     res.json(alldata)
+    
 });
 
 
@@ -74,7 +75,7 @@ app.put("/:id", (req, res) => {
     const data = req.body.data;
     product_De.update(
       {
-        product_name: data,
+        product_price: data,
       },
       {
         where: {
@@ -83,6 +84,7 @@ app.put("/:id", (req, res) => {
       }
     );
     res.redirect("/");
+  
   });
 
 

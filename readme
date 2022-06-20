@@ -1,0 +1,137 @@
+build crud api using node.js sequelize mysql
+
+Project Name-products-details
+
+here we are performing  CRUD operation like create,read,update delete the data
+
+creating data base login through mysql community server
+open terminal login as sudo user 
+sudo mysql
+password Anjana@123
+select user,host from mysql.user;
+
+
+how to create own user
+create user 'anjana'@'localhost' identified by Anjana@123;
+grant all privileges on * .* to 'anjana'@'localhoost';
+flush privileges;
+quit
+
+
+login as anjana user
+mysql -u anjana -p
+pwd Anjana@123
+
+
+create database anjudB;
+
+show databases its shows all the user
+
+
+in terminal select folder  cd Documents 
+cd project
+cd sql
+after npm init -y this command for creating node application y- its take everything
+creating file using touch index.js
+install our database,framework and orm
+npm i express sequelize mysql2(version 2) body-parser(using taking data from body of postman)
+
+npm i -D nodemon(developed dependency tool)
+
+code . its take terminal to visual studio u don't to open manualy
+
+
+
+first run  our server so we have to import express
+create a instance of  the express framework
+then import our body parser
+import our sequelize(orm)
+ then define a port number
+
+
+for run our server application using listen(
+ running our server use npx nodemon index.js
+
+
+give request to server 
+
+
+go to body-parser here  we are give urlencoded because  get the data in the body or encoded form 
+
+
+sequelize part
+
+for connection purpose  we are using sequelize then database name ,username and password finaly it take dialect:mysql 
+
+connecting our application  with backend  server using sequelize.authenticate, it returns a respons if it is  success respons we will catch it in then block oterwise  if it is  failure respons just say as error 
+ without creating table how we can save data  in mysql database 
+after that we have to create table 
+
+instead of writing query we are using sequelize  create table using sequelize.define()
+name our table give any name what are  the to be saved in database
+after that give the  coloumn name and datatype like product_name:Sequelize.STRING
+
+thirdly it takes  anothe one parameter which is option we don't have to mention manualy, but i am going to specify tablename as product_De
+
+still we did't get the  query of table creation  so  we have to say manualy product_De sync({force:true})----
+then goto my sql workbench then check it table was there or not 
+ next ya still we conecting our application to backend server , create table
+
+
+then go for crud opration 
+
+create 
+read
+update 
+delete
+
+next post some data to the table 
+
+we are taking data from front end which is post man it takes request and response like that
+
+----app.post("/", async (req, res) => {  --- deal with any third party appliction  we have to specify awit async
+    
+    const product_name = req.body.product_name;
+    const product_price = req.body.product_price;
+    const product_quantity = req.body.product_quantity;
+    const product_quality = req.body.product_quality;
+
+    const saveProduct1 = product_De.build({ ---creating data using build()
+      product_name,
+      product_price,
+      product_quantity,         ES6 format
+      product_quality,
+    });
+    await saveProduct1.save();
+    res.send("data posted Successfully");
+
+  });
+
+then come to postman so there pass values to using post method that values will be store in mysql atabase 
+ select post method send the data then we will get suceess message
+
+
+
+then go to mq sql write simple query like select * from product_de
+
+
+
+then go for read operation 
+
+app.get('/',async(req,res)=>{
+    const alldata=await product_De.findAll();  --getting all data
+    res.json(alldata)
+    
+});
+
+then go for update operation  we can use update metod in the update metod its takes two parameters one is current data anoter on is  condition
+
+
+
+
+
+
+ 
+
+
+
