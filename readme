@@ -42,6 +42,14 @@ code . its take terminal to visual studio u don't to open manualy
 
 
 
+
+
+
+
+
+
+
+
 first run  our server so we have to import express
 create a instance of  the express framework
 then import our body parser
@@ -61,7 +69,7 @@ go to body-parser here  we are give urlencoded because  get the data in the body
 
 sequelize part
 
-for connection purpose  we are using sequelize then database name ,username and password finaly it take dialect:mysql 
+for connection purpose  we are using sequelize then database name ,username and password finaly it take dialect:mysql ----dialect is a class its for genarating sql query
 
 connecting our application  with backend  server using sequelize.authenticate, it returns a respons if it is  success respons we will catch it in then block oterwise  if it is  failure respons just say as error 
  without creating table how we can save data  in mysql database 

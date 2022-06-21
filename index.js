@@ -41,11 +41,11 @@ const sequelize = new Sequelize("anjuDB", "anjana", "Anjana@123", {
 
 
   
-app.get("/",(req,res)=>{
-    res.send("it is working fine");
+//app.get("/",(req,res)=>{
+    //res.send("it is working fine");
 
 
-});
+//});
 
 app.post("/", async (req, res) => {
     
